@@ -1,0 +1,93 @@
+ALGORITHM Distinct_Algo_1stsolution
+VAR
+    array1 : ARRAY_OF INTEGER[10];
+    array2 : ARRAY_OF INTEGER[15];
+    i:= INTEGER= 0;
+    j:= INTEGER= 0;
+    sum:= INTEGER= 0;
+    b:=BOOLEAN;
+BEGIN
+    FOR i FROM 0 TO length.array1 STEP step  DO
+        Write("Enter number array1", array1[i]);
+        Read(array1[i]);
+    END_FOR
+    FOR j FROM 0 TO length.array2 STEP step  DO
+        Write("Enter number array2", array2[j]);
+        Read(array2[j]);
+    END_FOR
+    FOR i FROM 0 TO length.array1 STEP step  DO
+        b:= true;
+        FOR j FROM 0 TO length.array2 STEP step  DO
+            IF(array1[i]= array2[j]) THEN
+            b := false;
+            END_IF
+
+        END_FOR
+        IF (b= true) THEN
+        sum := sum+array1[i];
+        END_IF
+    END_FOR
+    FOR j FROM 0 TO length.array[j] STEP step  DO
+        b:= true;
+        FOR i FROM 0 TO length.array[i] STEP step  DO
+            IF (array2[j]=array1[i]) THEN
+            b:=false;
+            END_IF
+        END_FOR
+        IF (b=true) THEN
+        sum:=sum+array2[j]
+        END_IF
+    END_FOR
+END
+
+       // *********** 2nd solution *******************
+
+ALGORITHM Distinct_Algo_2ndsolution
+VAR
+    set_declarations
+BEGIN
+    set_instructions
+END
+
+
+
+// ****************** Sum of overlapping elements ********************
+
+ALGORITHM Sum_of_overlapping_elements_1stsolution
+VAR
+    array1 : ARRAY_OF INTEGER[10];
+    array2 : ARRAY_OF INTEGER[15];
+    i:= INTEGER= 0;
+    j:= INTEGER= 0;
+    sum:= INTEGER= 0;
+    b:=BOOLEAN;
+BEGIN
+    FOR i FROM 0 TO array.length-1 STEP step  DO
+        Write("Enter number please");
+        Read(array1[i]);
+    END_FOR
+    FOR j FROM 0 TO array2.length-1 STEP step  DO
+        Write("Enter number please");
+        Read(array[j]);
+    END_FOR
+    FOR i FROM 0 TO array1[i].length-1 STEP step  DO
+        b:= true;
+        FOR j FROM 0 TO array2[j].length-1 STEP step  DO
+            IF (array1[i]=array2[j]) THEN
+                b:= false;
+            END_IF
+        END_FOR
+        IF (b=false) THEN
+            sum:= sum + array1[i]*2;
+        END_IF
+    END_FOR
+END
+
+// **************** 2nd solution ***********************
+
+ALGORITHM Sum_of_overlapping_elements_2ndsolution
+VAR
+    set_declarations
+BEGIN
+    set_instructions
+END
