@@ -1,0 +1,46 @@
+ALGORITHM product_vector
+VAR
+ ps : FLOAT:=0;
+ i: INTEGER;
+PROCEDURE Dot_Product(v,u: ARRAY_OF FLOAT[3]);
+BEGIN
+    FOR i FROM 0 TO 2 STEP step  DO
+        Write("Enter elements, i+1, for v");
+        Read(v[i]);
+        Write("Enter elements, i+1, for u");
+        Read(u[i]);
+    END_FOR
+    FOR i FROM 0 TO 2 STEP step  DO
+        ps := ps + v[i]*u[i];
+        IF (ps===0) THEN
+            Write("Vectors are orthogonal");
+        ELSE
+            Write("Vectors are not orthogonal");
+        END_IF
+    END_FOR
+END
+
+FUNCTION Dot_Product(v,u : ARRAY_OF FLOAT[3]): FLOAT;
+VAR
+    ps: FLOAT:=0;
+    i: INTEGER;
+BEGIN
+    FOR i FROM 0 TO 2 STEP step  DO
+        Write("Enter elements, i, for v");
+        Read(v[i]);
+        Write("Enter elements, i, for u");
+        Read(u[i]);
+    END_FOR
+    FOR i FROM 0 TO 2 STEP step  DO
+        ps := ps+v[i]*u[i]
+    END_FOR
+    RETURN ps;
+    FOR i FROM 0 TO 2 STEP step  DO
+        IF (Dot_Product(v[i],u[i])===0) THEN
+          Write("Vectors are orthogonal");
+        ELSE
+            Write("Vectors are not orthogonal");
+        END_IF
+    END_FOR
+
+END
