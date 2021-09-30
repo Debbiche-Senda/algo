@@ -40,14 +40,50 @@ BEGIN
     END_FOR
 END
 
-       // *********** 2nd solution *******************
+       // *********** 2nd solution Hashtable*******************
 
 ALGORITHM Distinct_Algo_2ndsolution
 VAR
-    set_declarations
+    array1 : ARRAY_OF INTEGER[10];
+    array2 : ARRAY_OF INTEGER[15];
+    i:INTEGER:= 0;
+    j: INTEGER:=0;
+    // test:=BOOLEAN= false;
+    count:INTEGER:= 1;
+    hash:HASH_TABLE<INTEGER,INTEGER>;
+    d:INTEGER:=0;
+    t: ARRAY_OF INTEGER[10];
+    sum: INTEGER:=0;
+
 BEGIN
-    set_instructions
+    FOR i FROM 0 TO array1.length-1 STEP step  DO
+        // test:= true;
+        hash.insert(array1[i],count);
+        // IF (hash.lookup(t[i]= true)) THEN
+        //     count:= hash.get(t[i]);
+        //     hash.insert(t[i], count+1);
+        // END_IF
+    END_FOR
+    FOR j FROM 0 TO array2.length-1 STEP step  DO
+        // test:= true;
+        // hash.insert(t[j],count);
+        // IF (hash.lookup(t[j]=true)) THEN
+        IF (hash.lookup(array2[j])=true) THEN
+            count:= hash.get(array2[j]);
+            hash.insert(array2[j], count+1);
+
+        ELSE 
+            hash.insert(array2[j],1)    
+        END_IF
+    END_FOR
+    t:= hash.getkeys()
+    FOR d FROM 0 TO t.length-1 STEP step  DO
+        IF (hash.get(t[d])=1) THEN
+            sum= sum + t[d]
+        END_IF
+    END_FOR
 END
+
 
 
 
@@ -87,7 +123,32 @@ END
 
 ALGORITHM Sum_of_overlapping_elements_2ndsolution
 VAR
-    set_declarations
+    array1 : ARRAY_OF INTEGER[10];
+    array2 : ARRAY_OF INTEGER[15];
+    i:INTEGER:= 0;
+    j: INTEGER:=0;
+    count:INTEGER:= 1;
+    hash:HASH_TABLE<INTEGER,INTEGER>;
+    d:INTEGER:=0;
+    t: ARRAY_OF INTEGER[10];
+    sum: INTEGER:=0;
 BEGIN
-    set_instructions
+     FOR i FROM 0 TO array1.length-1 STEP step  DO
+        hash.insert(array1[i],count);
+    END_FOR
+    FOR j FROM 0 TO array2.length-1 STEP step  DO
+        IF (hash.lookup(array2[j])=true) THEN
+            count:= hash.get(array2[j]);
+            hash.insert(array2[j], count+1);
+
+        ELSE 
+            hash.insert(array2[j],1)    
+        END_IF
+    END_FOR
+    t:= hash.getkeys()
+    FOR d FROM 0 TO t.length-1 STEP step  DO
+        IF (hash.get(t[d])>1) THEN
+            sum= sum + t[d];
+        END_IF
+    END_FOR
 END
