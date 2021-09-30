@@ -1,0 +1,24 @@
+PROCEDURE Insertion_sort(arr: ARRAY_OF INTEGER[50])
+VAR
+    i: INTEGER;
+    j: INTEGER;
+    count: INTEGER;
+BEGIN
+   FOR i FROM 0 TO arr.length STEP step  DO
+       Write("Enter elements 'i' of array");
+       Read(arr);
+   END_FOR
+//    to select the value
+    FOR i FROM 1 TO arr.length-1 STEP step  DO
+        count:= arr[i];    
+        j:= i-1;         // Each time work only with the first i-1 element from of the array
+
+//  Move elements of arr that are > than count, to one position ahead of their current position
+        WHILE (j >= 0 AND arr[j] > count) DO
+            arr[j+1] := arr[j];
+            j := j-1;
+        END_WHILE                // Pick element arr[i] and insert it into sorted sequence in the array from 0 to i-1.
+
+        arr[j+1] = count;
+    END_FOR
+END
